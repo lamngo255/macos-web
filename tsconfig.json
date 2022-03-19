@@ -15,7 +15,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "baseUrl": "./src",
+    "types": ["node"],
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": ["./src"]
 }
