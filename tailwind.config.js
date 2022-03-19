@@ -4,7 +4,20 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        xx: "11rem",
+      },
+      keyframes: {
+        loading: {
+          "0%": { width: 0 },
+          "100%": { width: "100%" },
+        },
+      },
+      animation: {
+        loading: "loading 1.5s ease-in-out",
+      },
       colors: {
+        loading: "#424242",
         bg: "var(--bg)",
         border: "var(--border)",
         dropdown: "var(--dropdown)",

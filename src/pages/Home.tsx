@@ -1,12 +1,13 @@
 import { FC, useEffect, useState } from "react";
 import Title from "../components/Title";
+import LoadingScreen from "../components/LoadingScreen";
 
 const Home: FC = () => {
-  const [loadingScreen, setLoadingScreen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setLoadingScreen(true);
+      setLoading(true);
     }, 1500);
   }, []);
 
@@ -14,6 +15,7 @@ const Home: FC = () => {
     <>
       <Title value="Macos Web" />
       <div className="text-text">Test</div>
+      <LoadingScreen />
     </>
   );
 };
