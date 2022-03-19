@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text: #000;
+  --text-transparent: #00000080;
+  --text-gray: #666469;
+  --bg: #8193af6b;
+  --border: #d3d3d33b;
+  --dropdown: #ffffffe0;
+  --dropdown-item-hover: #4b99fd;
+  --divider: #d3d3d37c;
+  --app-bg: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #fff;
+    --text-transparent: #ffffff80;
+    --text-gray: #bdc1c5;
+    --bg: #1b1b1d4d;
+    --border: #d3d3d33b;
+    --dropdown: #1b1b1dda;
+    --dropdown-item-hover: #4b99fd;
+    --divider: #d3d3d37c;
+    --app-bg: #262226;
+  }
+}
+[data-theme="light"] {
+  --text: #000;
+  --text-transparent: #00000080;
+  --text-gray: #666469;
+  --bg: #8193af6b;
+  --border: #d3d3d33b;
+  --dropdown: #ffffffe0;
+  --dropdown-item-hover: #4b99fd;
+  --divider: #d3d3d37c;
+  --app-bg: #ffffff;
+}
+[data-theme="dark"] {
+  --text: #fff;
+  --text-transparent: #ffffff80;
+  --text-gray: #bdc1c5;
+  --bg: #1b1b1d4d;
+  --border: #d3d3d33b;
+  --dropdown: #1b1b1dda;
+  --dropdown-item-hover: #4b99fd;
+  --divider: #d3d3d37c;
+  --app-bg: #262226;
+}
