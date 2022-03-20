@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 
 const myNavigator = navigator as any;
 
-const Wifi: FC = () => {
+const Battery: FC = () => {
   const [percentage, setPercentage] = useState("");
 
   useEffect(() => {
@@ -35,4 +35,4 @@ const Wifi: FC = () => {
   );
 };
 
-export default Wifi;
+export default Battery;
