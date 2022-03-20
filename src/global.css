@@ -51,3 +51,12 @@
   --divider: #d3d3d37c;
   --app-bg: #262226;
 }
+
+@layer components {
+  .widget-dropdown {
+    @apply absolute right-2 top-full w-max opacity-0 invisible rounded overflow-hidden p-3 bg-dropdown border border-solid border-border flex flex-col items-stretch gap-5  group-focus-within:opacity-100 group-focus-within:visible;
+  }
+  .widget-label {
+    @apply bg-transparent h-full border-none px-3 cursor-pointer text-white flex items-center hover:bg-app-transparent;
+  }
+}

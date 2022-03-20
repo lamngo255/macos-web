@@ -11,7 +11,7 @@ const TopMenuLeft: FC = () => {
           key={item.label}
         >
           <button
-            className="label px-1.5 h-full text-white text-sm hover:bg-transparent"
+            className="label px-1.5 h-full text-white text-sm hover:bg-app-transparent"
             dangerouslySetInnerHTML={{ __html: item.label }}
           />
 

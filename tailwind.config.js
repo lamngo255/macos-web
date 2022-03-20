@@ -37,9 +37,10 @@ module.exports = {
         divider: "var(--divider)",
         accent: "var(--text)",
         gray: "var(--text-gray)",
-        transparent: "var(--text-transparent)",
         "dropdown-item-hover": "var(--dropdown-item-hover)",
         "app-bg": "var(--app-bg)",
+        "app-transparent": "var(--text-transparent)",
+        "toggle-active": "#1866df",
       },
       gridTemplateColumns: {
         lg: "repeat(auto-fill, minmax(160px, 1fr))",
