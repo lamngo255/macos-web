@@ -10,7 +10,7 @@ const Wifi: FC = () => {
   }, []);
 
   return (
-    <div className="wifi group" tabIndex={0}>
+    <div className="wifi relative group" tabIndex={0}>
       <button className="widget-label">
         {isOnline ? (
           <i className="text-xl bx bx-wifi"></i>
@@ -26,7 +26,7 @@ const Wifi: FC = () => {
             style={{ borderColor: "#7a7a7e", height: "1.4rem" }}
             className={classNames(
               "toggle w-10 h-5 rounded-full border border-solid relative",
-              isOnline && "bg-toggle-active group"
+              isOnline && "bg-toggle-active"
             )}
           >
             <div className="circle absolute w-5 h-5 rounded-full bg-white top-0 right-0"></div>
