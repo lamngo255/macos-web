@@ -1,7 +1,15 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { formatDate } from "@/shared/formatDate";
 
-const TopMenuRight: FC = () => {
-  return <div className="right-menu flex items-center h-full"></div>;
+let date = formatDate();
+
+const Date: FC = () => {
+  useEffect(() => {
+    setInterval(() => {
+      date = formatDate();
+    }, 5000);
+  }, []);
+  return <div className="text-white ml-2">{date}</div>;
 };
 
-export default TopMenuRight;
+export default Date;
