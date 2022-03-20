@@ -1,4 +1,4 @@
-import { MenuItemType, WallpaperType, ThemeType } from "./types";
+import { MenuItemType, WallpaperType, ThemeType, DockItemType } from "./types";
 
 export const TopBarMenu: MenuItemType[] = [
   {
@@ -168,6 +168,113 @@ export const TopBarMenu: MenuItemType[] = [
       "New to Mac? Tour the Basics",
       "Get to know your MacBook",
     ],
+  },
+];
+
+export const DockMenu: DockItemType[] = [
+  {
+    name: "Finder",
+    icon: "/dock/finder.png",
+    type: "component",
+    // component: Finder,
+    position: {
+      top: "70px",
+      left: "20%",
+    },
+    background: "var(--app-bg)",
+  },
+  {
+    name: "Calculator",
+    icon: "/dock/calculator.png",
+    type: "iframe",
+    iframe: {
+      url: "https://calculator-1.com/outdoor/?f=2d3135&r=2d3135",
+      width: 217,
+      height: 302,
+    },
+    background: "#2d3135",
+    color: "#FFFFFF",
+    position: {
+      top: "100px",
+      left: "10%",
+    },
+  },
+  {
+    name: "Calendar",
+    icon: "/dock/calendar.png",
+    type: "iframe",
+    iframe: {
+      url: "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FHo_Chi_Minh&showTitle=0&showTabs=0&showTz=0&showCalendars=0&showPrint=0&showNav=1&mode=MONTH",
+      width: 400,
+      height: 300,
+    },
+    background: "#FFFFFF",
+    color: "#000000",
+    position: {
+      top: "80px",
+      left: "40%",
+    },
+  },
+  {
+    name: "VSCode",
+    icon: "/dock/vscode.png",
+    type: "iframe",
+    iframe: {
+      url: "https://vscode.dev/",
+      width: 800,
+      height: 500,
+    },
+    background: "#252526",
+    color: "#FFFFFF",
+    position: {
+      top: "30px",
+      left: "20%",
+    },
+  },
+  {
+    name: "App Store",
+    icon: "/dock/appstore.png",
+    type: "component",
+    position: {
+      top: "50px",
+      left: "35%",
+    },
+    // component: AppStore,
+    background: "var(--app-bg)",
+  },
+  {
+    name: "Safari",
+    icon: "/dock/safari.png",
+    type: "component",
+    // component: Safari,
+    position: {
+      top: "50px",
+      left: "40%",
+    },
+    background: "var(--app-bg)",
+  },
+  {
+    name: "System Preference",
+    icon: "/dock/setting.png",
+    type: "component",
+    // component: Settings,
+    position: {
+      top: "100px",
+      left: "30%",
+    },
+    background: "var(--app-bg)",
+  },
+  {
+    name: "Github",
+    icon: "/dock/github.png",
+    type: "link",
+    link: "https://github.com/napthedev/mac-big-sur.git",
+  },
+  {
+    name: "Facebook",
+    icon: "/dock/facebook.png",
+    type: "link",
+    link: "https://facebook.com/napthedev",
   },
 ];
 

@@ -32,7 +32,9 @@ const Wifi: FC = () => {
             <div className="circle absolute w-5 h-5 rounded-full bg-white top-0 right-0"></div>
           </div>
         </div>
-        <p className="gray text-gray">You are connected to the internet</p>
+        <p className="gray text-gray -mt-3">
+          You are connected to the internet
+        </p>
       </div>
     </div>
   );

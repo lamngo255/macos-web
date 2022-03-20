@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { useStore } from "@/store";
 import { wallpapers } from "@/shared/constants";
 import TopMenu from "@/components/TopMenu";
+import Dock from "@/components/Dock";
 import Title from "@/components/Title";
 import LoadingScreen from "@/components/LoadingScreen";
 
@@ -30,6 +31,7 @@ const Home: FC = () => {
       )}
 
       <TopMenu />
+      <Dock />
     </div>
   );
 };

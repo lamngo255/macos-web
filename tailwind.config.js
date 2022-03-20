@@ -3,12 +3,12 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    maxWidth: {
-      content: "max-content",
-    },
     extend: {
       fontSize: {
         xx: "11rem",
+      },
+      height: {
+        18: "72px",
       },
       keyframes: {
         loading: {
