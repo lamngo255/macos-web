@@ -2,7 +2,7 @@ import { MenuItemType, WallpaperType, ThemeType } from "./types";
 
 export const TopBarMenu: MenuItemType[] = [
   {
-    label: `<i style="font-size: 20px;" class="bx bxl-apple" ></i>`,
+    label: `<i style="font-size: 20px;" class="bx bxl-apple pt-0.5" ></i>`,
     children: [
       "About This Mac",
       null,

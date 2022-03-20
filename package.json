@@ -16,6 +16,7 @@
     "reselect": "^4.1.5",
     "screenfull": "^6.0.0",
     "swr": "^1.1.2",
+    "twin.macro": "^2.8.2",
     "zustand": "^3.6.8"
   },
   "devDependencies": {

@@ -13,6 +13,7 @@
   --divider: #d3d3d37c;
   --app-bg: #ffffff;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #fff;
@@ -26,6 +27,7 @@
     --app-bg: #262226;
   }
 }
+
 [data-theme="light"] {
   --text: #000;
   --text-transparent: #00000080;
@@ -37,6 +39,7 @@
   --divider: #d3d3d37c;
   --app-bg: #ffffff;
 }
+
 [data-theme="dark"] {
   --text: #fff;
   --text-transparent: #ffffff80;

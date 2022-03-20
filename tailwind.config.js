@@ -3,6 +3,9 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
+    maxWidth: {
+      content: "max-content",
+    },
     extend: {
       fontSize: {
         xx: "11rem",
@@ -12,9 +15,19 @@ module.exports = {
           "0%": { width: 0 },
           "100%": { width: "100%" },
         },
+        fadeOut: {
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0 },
+        },
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
       },
       animation: {
         loading: "loading 1.5s ease-in-out",
+        "fade-in": "fadeIn 0.5s",
+        "fade-out": "fadeOut 0.5s",
       },
       colors: {
         loading: "#424242",
