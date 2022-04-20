@@ -7,7 +7,7 @@ import Title from "@/components/Title";
 import LoadingScreen from "@/components/LoadingScreen";
 
 const App: FC = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const wallpaperId = useStore((state) => state.wallpaperId);
   const wallpaper = wallpapers[wallpaperId].url;
 
