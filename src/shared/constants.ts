@@ -270,12 +270,6 @@ export const DockMenu: DockItemType[] = [
     type: "link",
     link: "https://github.com/mocmeo/macos-web",
   },
-  {
-    name: "Facebook",
-    icon: "/dock/facebook.png",
-    type: "link",
-    link: "https://www.facebook.com/lamngo25/",
-  },
 ];
 
 export const wallpapers: WallpaperType[] = [

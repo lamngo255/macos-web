@@ -45,6 +45,7 @@ const Dock: FC = () => {
             className="dock-icon w-12 h-auto rounded-md cursor-pointer duration-100"
             src={item.icon}
             alt=""
+            onClick={() => (window.location.href = item.link || "")}
           />
         </div>
       ))}
