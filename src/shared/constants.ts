@@ -274,7 +274,7 @@ export const DockMenu: DockItemType[] = [
     name: "Facebook",
     icon: "/dock/facebook.png",
     type: "link",
-    link: "https://facebook.com/napthedev",
+    link: "https://www.facebook.com/lamngo25/",
   },
 ];
 
