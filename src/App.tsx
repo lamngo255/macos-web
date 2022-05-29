@@ -13,7 +13,7 @@ const App: FC = () => {
   return (
     <div className="app w-screen h-screen bg-black">
       <Title value="MacOS Web" />
-      <LoadingScreen />
+      {/* <LoadingScreen /> */}
       <img
         id="wallpaper"
         className="h-screen w-screen fixed top-0 left-0 object-cover -z-2 animate-fade-in"

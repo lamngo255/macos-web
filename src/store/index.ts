@@ -1,12 +1,19 @@
 import create from "zustand";
 import { DockMenu } from "@/shared/constants";
 
+interface ChangeWindowPayload {
+  name: string;
+  value: number;
+}
+
 interface Store {
   wallpaperId: number;
   themeId: number;
   maxWindowId: number;
   windowList: Record<string, number>;
 
+  increaseMaxWindowId: () => void;
+  changeWindowId: (payload: ChangeWindowPayload) => void;
   changeWallpaper: (id: number) => void;
   changeTheme: (id: number) => void;
 }
@@ -24,11 +31,15 @@ export const useStore = create<Store>((set: any) => ({
   ),
 
   increaseMaxWindowId: () => {
-    set({ maxWindowId: set.maxWindowId + 1 });
+    set((state) => ({ maxWindowId: state.maxWindowId + 1 }));
   },
-  changeWindowId: (state, payload: Record<string, string>) => {
-    state.windowList[payload.name] = payload.value;
-  },
+  changeWindowId: (payload: ChangeWindowPayload) =>
+    set((state) => ({
+      windowList: {
+        ...state.windowList,
+        [payload.name]: payload.value,
+      },
+    })),
   changeWallpaper: (id: number) => {
     set({ wallpaperId: id });
     localStorage.setItem("WALLPAPER", id.toString());
