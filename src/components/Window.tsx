@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { useStore } from "@/store";
 import { DockItemType } from "@/shared/types";
 
@@ -7,18 +7,46 @@ interface WindowProps {
 }
 
 const Window: FC<WindowProps> = ({ item }) => {
-  const [dragging, setDragging] = useState(false);
+  const headEl = useRef<HTMLDivElement>(null);
+
+  let dragging = false;
   const [top, setTop] = useState(item.position?.top ?? 0);
   const [left, setLeft] = useState(item.position?.left ?? 0);
 
   const windowIndex = useStore((state) => state.windowList[item.name]);
   const maxWindowIndex = useStore((state) => state.maxWindowId);
 
+  const increaseMaxWindowId = useStore((state) => state.increaseMaxWindowId);
+  const changeWindowId = useStore((state) => state.changeWindowId);
+
   const closeApp = () => {};
 
   const minimizeWindow = () => {};
 
   const maximizeWindow = () => {};
+
+  const dragStart = (e: React.MouseEvent<HTMLDivElement>) => {
+    dragging = true;
+
+    if (headEl && headEl.current) {
+      const target = headEl.current;
+      const topDistance = e.clientY - target.getBoundingClientRect().top;
+      const leftDistance = e.clientX - target.getBoundingClientRect().left;
+
+      const handler = (e: MouseEvent) => {
+        if (dragging && e.clientY > 30 && e.clientY < innerHeight - 30) {
+          setTop(`${e.clientY - topDistance}px`);
+          setLeft(`${e.clientX - leftDistance}px`);
+        }
+      };
+
+      window.addEventListener("mousemove", handler);
+      window.addEventListener("mouseup", () => {
+        dragging = false;
+        removeEventListener("mousemove", handler);
+      });
+    }
+  };
 
   return (
     <div
@@ -36,7 +64,11 @@ const Window: FC<WindowProps> = ({ item }) => {
         visibility: windowIndex === -1 ? "hidden" : "visible",
       }}
     >
-      <div className="header flex p-1 pb-6">
+      <div
+        className="header flex p-1 pb-6"
+        onMouseDown={(e) => dragStart(e)}
+        ref={headEl}
+      >
         <div className="actions group inline-flex gap-1 pt-1 pl-1 absolute z-10">
           <span
             className="action-btn bx bx-x bg-btn-close"
