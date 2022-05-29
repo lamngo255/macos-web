@@ -60,6 +60,11 @@
     @apply bg-transparent h-full border-none px-2 cursor-pointer text-white flex items-center focus-within:bg-app-transparent;
   }
   .widget-dock {
-    @apply fixed left-1/2 bottom-3 w-auto z-40 -translate-x-1/2 flex items-end gap-3 bg-bg border border-solid border-border p-3 rounded-3xl h-18 duration-300;
+    @apply fixed left-1/2 bottom-3 w-auto z-40 -translate-x-1/2 flex items-end bg-bg border border-solid border-border p-2 gap-1 rounded-3xl h-18 duration-300;
   }
+}
+
+.item:hover + .item img {
+  -webkit-transform: scale(1.4);
+  margin: 0 1.2rem;
 }

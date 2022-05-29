@@ -10,6 +10,17 @@ module.exports = {
       height: {
         18: "72px",
       },
+      scale: {
+        175: "1.75",
+        200: "2",
+      },
+      transitionDuration: {
+        0: "0ms",
+        250: "250ms",
+      },
+      transformOrigin: {
+        "top-1/2": "50% 100%",
+      },
       keyframes: {
         loading: {
           "0%": { width: 0 },

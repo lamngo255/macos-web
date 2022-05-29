@@ -1,48 +1,16 @@
-import { FC, useEffect, useState, MouseEvent } from "react";
+import { FC } from "react";
 import { DockMenu } from "@/shared/constants";
 
-const DEFAULT_ICON_SIZE = 48;
-
 const Dock: FC = () => {
-  let dockIcons: NodeListOf<HTMLImageElement>;
-
-  useEffect(() => {
-    dockIcons = document.querySelectorAll(".dock-icon");
-  }, []);
-
-  const mouseMoveHandler = (e: MouseEvent<HTMLDivElement>) => {
-    dockIcons.forEach((elem: HTMLImageElement) => {
-      const left =
-        elem.getBoundingClientRect().left +
-        elem.getBoundingClientRect().width / 2;
-
-      const maxDistance = 300;
-      const distance = Math.abs(e.clientX - left);
-
-      let iconSize =
-        distance < maxDistance
-          ? DEFAULT_ICON_SIZE + (maxDistance - distance) * 0.15 + "px"
-          : DEFAULT_ICON_SIZE + "px";
-      elem.style.width = iconSize;
-    });
-  };
-
-  const mouseLeaveHandler = (e: MouseEvent<HTMLDivElement>) => {
-    dockIcons.forEach((element: HTMLImageElement) => {
-      element.style.width = DEFAULT_ICON_SIZE + "px";
-    });
-  };
-
   return (
-    <div
-      className="dock widget-dock"
-      onMouseMove={mouseMoveHandler}
-      onMouseLeave={mouseLeaveHandler}
-    >
+    <div className="dock widget-dock">
       {DockMenu.map((item) => (
-        <div className="item" key={item.name}>
+        <div className="item group" key={item.name}>
+          <span className="hidden absolute bottom-10 left-0 w-full">
+            {item.name}
+          </span>
           <img
-            className="dock-icon w-12 h-auto rounded-md cursor-pointer duration-100"
+            className="dock-icon w-14 p-1 h-auto rounded-md cursor-pointer transition-all duration-300 origin-top-1/2 group-hover:scale-200 group-hover:mx-8"
             src={item.icon}
             alt=""
             onClick={() => (window.location.href = item.link || "")}
