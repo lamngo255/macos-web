@@ -36,8 +36,8 @@ const Window: FC<WindowProps> = ({ item }) => {
         visibility: windowIndex === -1 ? "hidden" : "visible",
       }}
     >
-      <div className="header flex flex-1 p-1 w-full">
-        <div className="actions group flex gap-1 pt-1 pl-1">
+      <div className="header flex p-1 pb-6">
+        <div className="actions group inline-flex gap-1 pt-1 pl-1 absolute z-10">
           <span
             className="action-btn bx bx-x bg-btn-close"
             onClick={() => closeApp()}
@@ -50,7 +50,13 @@ const Window: FC<WindowProps> = ({ item }) => {
             onClick={maximizeWindow}
           ></span>
         </div>
-        <div className="label text-center text-md select-none">{item.name}</div>
+
+        <div
+          className="label text-center text-md select-none absolute w-full"
+          style={{ color: item.color || "var(--text)" }}
+        >
+          {item.name}
+        </div>
       </div>
 
       {item.iframe && (
