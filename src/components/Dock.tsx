@@ -8,6 +8,7 @@ const Dock: FC = () => {
   const changeWindowId = useStore((state) => state.changeWindowId);
 
   const maxWindowId = useStore((state) => state.maxWindowId);
+  const windowList = useStore((state) => state.windowList);
 
   const clickHandler = (name: string) => {
     const item = DockMenu.find((i) => i.name === name);
@@ -44,7 +45,7 @@ const Dock: FC = () => {
         ))}
       </div>
 
-      <Window item={DockMenu[0]} />
+      <Window item={DockMenu[2]} />
     </div>
   );
 };
