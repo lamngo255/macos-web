@@ -12,6 +12,10 @@
   --dropdown-item-hover: #4b99fd;
   --divider: #d3d3d37c;
   --app-bg: #ffffff;
+
+  --btn-close: #ff0000;
+  --btn-min: #ffff00;
+  --btn-max: #00ff00;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,6 +65,10 @@
   }
   .widget-dock {
     @apply fixed left-1/2 bottom-3 w-auto z-40 -translate-x-1/2 flex items-end bg-bg border border-solid border-border p-2 gap-1 rounded-3xl h-18 duration-300;
+  }
+
+  .action-btn {
+    @apply rounded-full text-transparent group-hover:text-gray group-hover:cursor-pointer w-4 h-4 text-center select-none;
   }
 }
 

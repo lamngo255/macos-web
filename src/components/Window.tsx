@@ -14,6 +14,12 @@ const Window: FC<WindowProps> = ({ item }) => {
   const windowIndex = useStore((state) => state.windowList[item.name]);
   const maxWindowIndex = useStore((state) => state.maxWindowId);
 
+  const closeApp = () => {};
+
+  const minimizeWindow = () => {};
+
+  const maximizeWindow = () => {};
+
   return (
     <div
       className="window absolute rounded overflow-hidden flex flex-col"
@@ -30,6 +36,23 @@ const Window: FC<WindowProps> = ({ item }) => {
         visibility: windowIndex === -1 ? "hidden" : "visible",
       }}
     >
+      <div className="header flex flex-1 p-1 w-full">
+        <div className="actions group flex gap-1 pt-1 pl-1">
+          <span
+            className="action-btn bx bx-x bg-btn-close"
+            onClick={() => closeApp()}
+          ></span>
+          <span className="action-btn bg-btn-min" onClick={minimizeWindow}>
+            -
+          </span>
+          <span
+            className="action-btn bx bx-expand-alt bg-btn-max"
+            onClick={maximizeWindow}
+          ></span>
+        </div>
+        <div className="label text-center text-md select-none">{item.name}</div>
+      </div>
+
       {item.iframe && (
         <iframe
           src={item.iframe.url}

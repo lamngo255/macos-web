@@ -52,6 +52,9 @@ module.exports = {
         "app-bg": "var(--app-bg)",
         "app-transparent": "var(--text-transparent)",
         "toggle-active": "#1866df",
+        "btn-close": "var(--btn-close)",
+        "btn-min": "var(--btn-min)",
+        "btn-max": "var(--btn-max)",
       },
       gridTemplateColumns: {
         lg: "repeat(auto-fill, minmax(160px, 1fr))",
