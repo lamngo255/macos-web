@@ -6,7 +6,7 @@ const Dock: FC = () => {
     <div className="dock widget-dock">
       {DockMenu.map((item) => (
         <div className="item group relative" key={item.name}>
-          <span className="hidden absolute bottom-32 -left-1 text-center w-32 group-hover:inline text-white bg-black/50 rounded-md">
+          <span className="hidden absolute bottom-28 -left-1 text-center w-32 group-hover:inline text-white bg-black/50 rounded-md">
             {item.name}
           </span>
           <img

@@ -23,6 +23,12 @@ export const useStore = create<Store>((set: any) => ({
     {} as any
   ),
 
+  increaseMaxWindowId: () => {
+    set({ maxWindowId: set.maxWindowId + 1 });
+  },
+  changeWindowId: (state, payload: Record<string, string>) => {
+    state.windowList[payload.name] = payload.value;
+  },
   changeWallpaper: (id: number) => {
     set({ wallpaperId: id });
     localStorage.setItem("WALLPAPER", id.toString());
