@@ -1,7 +1,7 @@
 import { FC, Fragment } from "react";
 import { useStore } from "@/store";
 import { DockMenu } from "@/shared/constants";
-import Window from "./Window";
+import Window from "./window/Window";
 
 const Dock: FC = () => {
   const increaseMaxWindowId = useStore((state) => state.increaseMaxWindowId);
@@ -45,7 +45,7 @@ const Dock: FC = () => {
         ))}
       </div>
 
-      <Window item={DockMenu[2]} />
+      <Window item={DockMenu[3]} />
     </div>
   );
 };
