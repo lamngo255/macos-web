@@ -1,7 +1,7 @@
-import { FC, useRef, useState } from "react";
+import { FC } from "react";
 import { useStore } from "@/store";
 import { DockItemType } from "@/shared/types";
-import { useDraggable } from "@neodrag/react";
+import { Rnd } from "react-rnd";
 import TitleBar from "@/components/window/TitleBar";
 
 interface WindowProps {
@@ -32,28 +32,33 @@ const WindowWrapper: FC<WindowProps> = ({ children, item }) => {
   const windowIndex = useStore((state) => state.windowList[item.name]);
   const maxWindowIndex = useStore((state) => state.maxWindowId);
 
-  const draggableRef = useRef(null);
-  useDraggable(draggableRef);
-
   return (
-    <div
-      className="window absolute rounded overflow-hidden flex flex-col"
-      ref={draggableRef}
-      style={{
-        background: item.background,
-        top: item.position?.top ?? 0,
-        left: item.position?.left ?? 0,
-        zIndex: windowIndex,
-        boxShadow:
-          windowIndex === maxWindowIndex
-            ? "0 0 20px #1d1e1f"
-            : "0 0 10px #1d1e1f",
-        opacity: windowIndex === -1 ? "0" : "",
-        visibility: windowIndex === -1 ? "hidden" : "visible",
+    <Rnd
+      default={{
+        x: 150,
+        y: 205,
+        width: 600,
+        height: 190,
       }}
     >
-      {children}
-    </div>
+      <div
+        className="window absolute rounded overflow-hidden flex flex-col"
+        style={{
+          background: item.background,
+          top: 200,
+          left: 300,
+          zIndex: windowIndex,
+          boxShadow:
+            windowIndex === maxWindowIndex
+              ? "0 0 20px #1d1e1f"
+              : "0 0 10px #1d1e1f",
+          opacity: windowIndex === -1 ? "0" : "",
+          visibility: windowIndex === -1 ? "hidden" : "visible",
+        }}
+      >
+        {children}
+      </div>
+    </Rnd>
   );
 };
 
