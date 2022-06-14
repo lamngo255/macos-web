@@ -9,44 +9,17 @@ interface WindowProps {
 }
 
 const Window: FC<WindowProps> = ({ item }) => {
-  // const windowIndex = useStore((state) => state.windowList[item.name]);
-  // const maxWindowIndex = useStore((state) => state.maxWindowId);
-
-  return (
-    <WindowWrapper item={item}>
-      <TitleBar item={item} />
-
-      {item.iframe && (
-        <iframe
-          src={item.iframe.url}
-          width={item.iframe.width}
-          height={item.iframe.height}
-          frameBorder={0}
-        ></iframe>
-      )}
-    </WindowWrapper>
-  );
-};
-
-const WindowWrapper: FC<WindowProps> = ({ children, item }) => {
   const windowIndex = useStore((state) => state.windowList[item.name]);
   const maxWindowIndex = useStore((state) => state.maxWindowId);
 
   return (
-    <Rnd
-      default={{
-        x: 150,
-        y: 205,
-        width: 600,
-        height: 190,
-      }}
-    >
+    <WindowWrapper item={item}>
       <div
         className="window absolute rounded overflow-hidden flex flex-col"
         style={{
           background: item.background,
-          top: 200,
-          left: 300,
+          top: item.position?.top,
+          left: item.position?.left,
           zIndex: windowIndex,
           boxShadow:
             windowIndex === maxWindowIndex
@@ -56,10 +29,23 @@ const WindowWrapper: FC<WindowProps> = ({ children, item }) => {
           visibility: windowIndex === -1 ? "hidden" : "visible",
         }}
       >
-        {children}
+        <TitleBar item={item} />
+
+        {item.iframe && (
+          <iframe
+            src={item.iframe.url}
+            width={item.iframe.width}
+            height={item.iframe.height}
+            frameBorder={0}
+          ></iframe>
+        )}
       </div>
-    </Rnd>
+    </WindowWrapper>
   );
+};
+
+const WindowWrapper: FC<WindowProps> = ({ children }) => {
+  return <Rnd enableResizing={true}>{children}</Rnd>;
 };
 
 export default Window;
