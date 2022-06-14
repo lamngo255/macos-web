@@ -80,7 +80,7 @@ img {
   }
 
   .action-btn {
-    @apply rounded-full text-transparent group-hover:text-gray group-hover:cursor-pointer w-3 h-3 text-center select-none duration-200 transition-all text-tiny leading-3 font-bold;
+    @apply rounded-full text-transparent group-hover:text-black group-hover:cursor-pointer w-3 h-3 text-center select-none duration-200 transition-all text-tiny leading-3 font-bold;
   }
 }
 

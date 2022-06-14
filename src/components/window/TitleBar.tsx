@@ -16,7 +16,12 @@ const TitleBar: FC<TitleBarProps> = ({ item }) => {
     });
   };
 
-  const minimizeWindow = () => {};
+  const minimizeWindow = () => {
+    changeWindowId({
+      name: item.name,
+      value: -1,
+    });
+  };
 
   const maximizeWindow = () => {};
 
