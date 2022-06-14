@@ -4,11 +4,10 @@ import { DockMenu } from "@/shared/constants";
 import Window from "./window/Window";
 
 const Dock: FC = () => {
+  const maxWindowId = useStore((state) => state.maxWindowId);
+
   const increaseMaxWindowId = useStore((state) => state.increaseMaxWindowId);
   const changeWindowId = useStore((state) => state.changeWindowId);
-
-  const maxWindowId = useStore((state) => state.maxWindowId);
-  const windowList = useStore((state) => state.windowList);
 
   const clickHandler = (name: string) => {
     const item = DockMenu.find((i) => i.name === name);
@@ -23,9 +22,11 @@ const Dock: FC = () => {
     increaseMaxWindowId();
     changeWindowId({
       name,
-      value: maxWindowId,
+      value: maxWindowId + 1,
     });
   };
+
+  const openedApps = DockMenu.filter((item) => item.type !== "link");
 
   return (
     <div className="dock-wrapper">
@@ -45,7 +46,11 @@ const Dock: FC = () => {
         ))}
       </div>
 
-      <Window item={DockMenu[3]} />
+      <Fragment>
+        {openedApps.map((item, key) => (
+          <Window item={item} key={key} />
+        ))}
+      </Fragment>
     </div>
   );
 };

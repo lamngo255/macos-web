@@ -44,8 +44,26 @@ const Window: FC<WindowProps> = ({ item }) => {
   );
 };
 
-const WindowWrapper: FC<WindowProps> = ({ children }) => {
-  return <Rnd enableResizing={true}>{children}</Rnd>;
+const WindowWrapper: FC<WindowProps> = ({ children, item }) => {
+  const windowIndex = useStore((state) => state.windowList[item.name]);
+  const maxWindowId = useStore((state) => state.maxWindowId);
+
+  const increaseMaxWindowId = useStore((state) => state.increaseMaxWindowId);
+  const changeWindowId = useStore((state) => state.changeWindowId);
+
+  const bringToFront = () => {
+    increaseMaxWindowId();
+    changeWindowId({
+      name: item.name,
+      value: maxWindowId + 1,
+    });
+  };
+
+  return (
+    <Rnd style={{ zIndex: windowIndex }} onMouseDown={bringToFront}>
+      {windowIndex !== 0 && children}
+    </Rnd>
+  );
 };
 
 export default Window;

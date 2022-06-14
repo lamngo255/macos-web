@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useStore } from "@/store";
 import { DockItemType } from "@/shared/types";
 
 interface TitleBarProps {
@@ -6,7 +7,14 @@ interface TitleBarProps {
 }
 
 const TitleBar: FC<TitleBarProps> = ({ item }) => {
-  const closeApp = () => {};
+  const changeWindowId = useStore((state) => state.changeWindowId);
+
+  const closeApp = () => {
+    changeWindowId({
+      name: item.name,
+      value: 0,
+    });
+  };
 
   const minimizeWindow = () => {};
 
