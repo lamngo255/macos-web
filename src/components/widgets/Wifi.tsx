@@ -24,12 +24,18 @@ const Wifi: FC = () => {
           <span className="font-bold">Wi-Fi</span>
           <div
             style={{ borderColor: "#7a7a7e", height: "1.4rem" }}
+            onClick={() => setIsOnline((isOnl) => !isOnl)}
             className={classNames(
               "toggle w-10 h-5 rounded-full border border-solid relative",
               isOnline && "bg-toggle-active"
             )}
           >
-            <div className="circle absolute w-5 h-5 rounded-full bg-white top-0 right-0"></div>
+            <div
+              className={classNames(
+                "circle absolute w-5 h-5 rounded-full bg-white top-0 cursor-pointer",
+                isOnline ? "right-0" : "left-0"
+              )}
+            ></div>
           </div>
         </div>
         <p className="gray text-gray -mt-3">
