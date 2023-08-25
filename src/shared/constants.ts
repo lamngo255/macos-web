@@ -220,7 +220,7 @@ export const DockMenu: DockItemType[] = [
     icon: "/dock/vscode.png",
     type: "iframe",
     iframe: {
-      url: "https://stackblitz.com/github/mocmeo/macos-web?embed=1&file=src%2Fcomponents%2Fwidgets%2FWifi.tsx&hideNavigation=1&theme=dark&view=editor",
+      url: "https://stackblitz.com/github/mocmeo/macos-web?embed=1&file=src%2FApp.tsx&hideNavigation=1&theme=dark&view=editor",
       width: 800,
       height: 700,
     },
